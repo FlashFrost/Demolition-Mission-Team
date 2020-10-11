@@ -11,7 +11,6 @@ public class GravityController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Gravity Well")) {
-            Debug.Log("ELLO?");
             projectileInside = true;
             gravityWell = other.gameObject;
         }
@@ -19,7 +18,6 @@ public class GravityController : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Gravity Well")) {
-            Debug.Log("GOBYE?");
             projectileInside = false;
             gravityWell = null;
         }

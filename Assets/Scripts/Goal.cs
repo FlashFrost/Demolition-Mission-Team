@@ -7,7 +7,20 @@ public class Goal : MonoBehaviour
 
     static public bool goalMet = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("Projectile")) {
+            Debug.Log("Ello?");
+            Goal.goalMet = true;
+
+            Material mat = GetComponent<Renderer>().material;
+            Color c = mat.color;
+            c.a = 1;
+            mat.color = c;
+        }
+    }
+
+    /*
+    private void OnColliderEnter(Collider other)
     {
         if(other.gameObject.tag == "Projectile")
         {
@@ -19,6 +32,7 @@ public class Goal : MonoBehaviour
             mat.color = c;
         }
     }
+    */
 
     // Update is called once per frame
     void Update()
