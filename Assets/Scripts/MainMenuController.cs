@@ -10,14 +10,11 @@ public class MainMenuController : MonoBehaviour
     public GameObject menuVoidbox;
     public GameObject levelSelectVoidbox;
 
-    private SceneManager SM;
-
     // Start is called before the first frame update
     void Start()
     {
         menuVoidbox.SetActive(true);
         levelSelectVoidbox.SetActive(false);
-        SM = new SceneManager();
     }
 
     public void playGame()
@@ -34,13 +31,22 @@ public class MainMenuController : MonoBehaviour
     public void Level1()
     {
         PlayerPrefs.SetInt("Level", 1);
+        SceneManager.LoadScene(1);
+        //bool debugBool = PlayerPrefs.HasKey("Level");
+        //Debug.Log(debugBool);
+        //int debugInt = PlayerPrefs.GetInt("Level");
+        //Debug.Log(debugInt);
     }   
     public void Level2()
     {
         PlayerPrefs.SetInt("Level", 2);
+        SceneManager.LoadScene(1);
+
     }
     public void Level3()
     {
         PlayerPrefs.SetInt("Level", 3);
+        SceneManager.LoadScene(1);
+
     }
 }
