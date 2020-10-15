@@ -20,12 +20,12 @@ public class MissionDemolition : MonoBehaviour
     public Text uiButton;
     public Vector3 castlePos;
     public GameObject[] castles;
+    public GameObject moon;
 
     [Header("Set Dynamically")]
     public int level;
     public int levelMax;
     public int shotsTaken;
-    public GameObject castle;
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot";
 
@@ -39,18 +39,14 @@ public class MissionDemolition : MonoBehaviour
 
     void StartLevel()
     {
-        if(castle!= null)
-        {
-            Destroy(castle);
-        }
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Projectile");
         foreach(GameObject ptemp in gos)
         {
             Destroy(ptemp);
         }
 
-        castle = Instantiate<GameObject>(castles[level]);
-        castle.transform.position = castlePos;
+        //moon = Instantiate<GameObject>(castles[level]);
+        //moon.transform.position = castlePos;
         shotsTaken = 0;
 
         SwitchView("Show Both");
@@ -104,7 +100,7 @@ public class MissionDemolition : MonoBehaviour
                 uiButton.text = "Show Castle";
                 break;
             case "Show Castle":
-                FollowCam.POI = S.castle;
+                FollowCam.POI = S.moon;
                 uiButton.text = "Show Both";
                 break;
             case "Show Both":
