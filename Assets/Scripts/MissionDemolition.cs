@@ -19,21 +19,22 @@ public class MissionDemolition : MonoBehaviour
     public Text uiShots;
     public Text uiButton;
     public Vector3 castlePos;
-    public GameObject[] castles;
+    public GameObject[] levels;
     public GameObject moon;
 
     [Header("Set Dynamically")]
-    public int level;
     public int levelMax;
     public int shotsTaken;
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot";
+    public GameObject levelCreation;
 
+    private int level;
     private void Start()
     {
         S = this;
         level = PlayerPrefs.GetInt("Level", 0) - 1;
-        levelMax = castles.Length;
+        levelMax = levels.Length;
         StartLevel();
     }
 
@@ -45,7 +46,7 @@ public class MissionDemolition : MonoBehaviour
             Destroy(ptemp);
         }
 
-        //moon = Instantiate<GameObject>(castles[level]);
+        levelCreation = Instantiate<GameObject>(levels[level]); //Instantiates a level.
         //moon.transform.position = castlePos;
         shotsTaken = 0;
 
@@ -77,6 +78,9 @@ public class MissionDemolition : MonoBehaviour
 
     void NextLevel()
     {
+        string pref = (level + "Completed");
+        PlayerPrefs.SetString(pref, "Yes");
+
         level++;
         if(level == levelMax)
         {
@@ -95,17 +99,13 @@ public class MissionDemolition : MonoBehaviour
         showing = eView;
         switch (showing)
         {
-            case "Show Slingshot":
+            case "Zoom In":
                 FollowCam.POI = null;
-                uiButton.text = "Show Castle";
+                uiButton.text = "Zoom Out";
                 break;
-            case "Show Castle":
+            case "Zoom Out":
                 FollowCam.POI = S.moon;
-                uiButton.text = "Show Both";
-                break;
-            case "Show Both":
-                FollowCam.POI = GameObject.Find("ViewBoth");
-                uiButton.text = "Show Slingshot";
+                uiButton.text = "Zoom In";
                 break;
         }
     }
