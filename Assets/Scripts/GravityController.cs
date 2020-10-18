@@ -6,27 +6,28 @@ public class GravityController : MonoBehaviour
 {
     public float pullPower;
 
-    private bool projectileInside = false;
-    private GameObject gravityWell;
+    private List<GameObject> wells = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Gravity Well")) {
-            projectileInside = true;
-            gravityWell = other.gameObject;
+            wells.Add(other.gameObject);
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Gravity Well")) {
-            projectileInside = false;
-            gravityWell = null;
+            wells.Remove(other.gameObject);
         }
     }
 
     private void FixedUpdate() {
-        if (projectileInside && gravityWell != null) {
-            gameObject.transform.LookAt(gravityWell.transform);
-            gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * pullPower);
+        if (wells.Count > 0) {
+            Vector3 gravToApply = Vector3.one;        
+            foreach (GameObject well in wells) {
+                gameObject.transform.LookAt(well.transform);
+                gravToApply += gameObject.transform.forward * pullPower;
+            }
+            gameObject.GetComponent<Rigidbody>().AddForce(gravToApply);
         }
     }
 }
