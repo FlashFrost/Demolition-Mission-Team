@@ -86,8 +86,8 @@ public class MainMenuController : MonoBehaviour
         levelLoadingtext.text = ("Now Loading Level: " + levelCall);
         levelLoadingVoidbox.SetActive(true);
 
-        Debug.Log(levelCall);
-        //PlayerPrefs.SetInt("Level", levelCall);
-        //SceneManager.LoadScene(1);
+        //Debug.Log(levelCall);
+        PlayerPrefs.SetInt("Level", levelCall);
+        SceneManager.LoadScene(1);
     }
 }
