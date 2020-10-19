@@ -33,7 +33,7 @@ public class MissionDemolition : MonoBehaviour
     private void Start()
     {
         S = this;
-        level = PlayerPrefs.GetInt("Level", 0) - 1;
+        level = PlayerPrefs.GetInt("Level", 1) - 1;
         levelMax = levels.Length;
         StartLevel();
     }
@@ -71,7 +71,7 @@ public class MissionDemolition : MonoBehaviour
         if ((mode == GameMode.playing) && Goal.goalMet)
         {
             mode = GameMode.levelEnd;
-            SwitchView("Show Both");
+            SwitchView("View Target");
             Invoke("NextLevel", 2f);
         }
     }
@@ -99,13 +99,13 @@ public class MissionDemolition : MonoBehaviour
         showing = eView;
         switch (showing)
         {
-            case "Zoom In":
+            case "View Launcher":
                 FollowCam.POI = null;
-                uiButton.text = "Zoom Out";
+                uiButton.text = "View Target";
                 break;
-            case "Zoom Out":
+            case "View Target":
                 FollowCam.POI = S.moon;
-                uiButton.text = "Zoom In";
+                uiButton.text = "View Launcher";
                 break;
         }
     }

@@ -11,6 +11,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject levelSelectVoidbox;
     public GameObject levelLoadingVoidbox;
     public TextMeshProUGUI levelLoadingtext;
+    public GameObject[] checkMarks;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,15 @@ public class MainMenuController : MonoBehaviour
         menuVoidbox.SetActive(true);
         levelSelectVoidbox.SetActive(false);
         levelLoadingVoidbox.SetActive(false);
+        for (int i = 0; i < 12; i++)
+        {
+            string pref = PlayerPrefs.GetString(i + "Completed");
+            Debug.Log(pref);
+            if (pref == "Yes")
+                checkMarks[i].SetActive(true);
+            else
+                checkMarks[i].SetActive(false);
+        }
     }
 
     public void playGame()

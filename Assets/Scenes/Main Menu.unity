@@ -4746,6 +4746,19 @@ MonoBehaviour:
   levelSelectVoidbox: {fileID: 496855060}
   levelLoadingVoidbox: {fileID: 786210252}
   levelLoadingtext: {fileID: 455974679}
+  checkMarks:
+  - {fileID: 846552002}
+  - {fileID: 1989452217}
+  - {fileID: 1054919567}
+  - {fileID: 1550052473}
+  - {fileID: 1751513159}
+  - {fileID: 293293573}
+  - {fileID: 1108677075}
+  - {fileID: 12541848}
+  - {fileID: 700625097}
+  - {fileID: 1965122399}
+  - {fileID: 1128351017}
+  - {fileID: 888092639}
 --- !u!1 &1703308959
 GameObject:
   m_ObjectHideFlags: 0
