@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Slingshot : MonoBehaviour
 {
@@ -8,12 +9,15 @@ public class Slingshot : MonoBehaviour
 
     [Header("Set In Inspector")]
     public GameObject prefabProjectile;
+    public GameObject prefabCometProjectile;
     public float velocityMult = 8f;
+    public TextMeshProUGUI projectileType;
 
     [Header("Set Dynamically")]
     private Rigidbody projectileRigidbody;
     public GameObject launchPoint;
     public Vector3 launchPos;
+    static private bool shootComet;
 
     static public Vector3 LAUNCH_POS
     {
@@ -32,7 +36,7 @@ public class Slingshot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        shootComet = false;
     }
 
     private void Awake()
@@ -59,7 +63,14 @@ public class Slingshot : MonoBehaviour
     private void OnMouseDown()
     {
         aimingMode = true;
-        projectile = Instantiate(prefabProjectile) as GameObject;
+        if (shootComet == false)
+        {
+            projectile = Instantiate(prefabProjectile) as GameObject;
+        }
+        else
+        {
+            projectile = Instantiate(prefabCometProjectile) as GameObject;
+        }
         projectile.transform.position = launchPos;
         projectile.GetComponent<Rigidbody>().isKinematic = true;
         projectileRigidbody = projectile.GetComponent<Rigidbody>();
@@ -96,6 +107,20 @@ public class Slingshot : MonoBehaviour
             projectile = null;
             MissionDemolition.ShotFired();
             ProjectileLine.S.poi = projectile;
+        }
+    }
+
+    public void ChangeProjectile()
+    {
+        if(shootComet == true)
+        {
+            shootComet = false;
+            projectileType.text = "Currently Shooting: Asteroid";
+        }
+        else
+        {
+            shootComet = true;
+            projectileType.text = "Currently Shooting: Comet";
         }
     }
 }

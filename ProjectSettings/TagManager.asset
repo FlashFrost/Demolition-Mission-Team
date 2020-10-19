@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Projectile
   - Gravity Well
+  - Goal
+  - Enemy
+  - Comet
   layers:
   - Default
   - TransparentFX

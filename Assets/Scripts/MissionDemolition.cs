@@ -71,7 +71,7 @@ public class MissionDemolition : MonoBehaviour
         if ((mode == GameMode.playing) && Goal.goalMet)
         {
             mode = GameMode.levelEnd;
-            SwitchView("View Target");
+            SwitchView("View Launcher");
             Invoke("NextLevel", 2f);
         }
     }
@@ -91,23 +91,25 @@ public class MissionDemolition : MonoBehaviour
 
     public void SwitchView(string eView = "")
     {
-        if(eView == "")
-        {
-            eView = uiButton.text;
-        }
+        //if(eView == "")
+        //{
+        //    eView = uiButton.text;
+        //}
 
-        showing = eView;
-        switch (showing)
-        {
-            case "View Launcher":
-                FollowCam.POI = null;
-                uiButton.text = "View Target";
-                break;
-            case "View Target":
-                FollowCam.POI = S.moon;
-                uiButton.text = "View Launcher";
-                break;
-        }
+        //showing = eView;
+        //switch (showing)
+        //{
+        //    case "View Launcher":
+        //        FollowCam.POI = null;
+        //        uiButton.text = "Zoom Out";
+        //        break;
+        //    case "Zoom Out":
+        //        FollowCam.POI
+        //        uiButton.text = "View Launcher";
+        //        break;
+        //}
+
+        FollowCam.POI = null;
     }
 
     public static void ShotFired()
