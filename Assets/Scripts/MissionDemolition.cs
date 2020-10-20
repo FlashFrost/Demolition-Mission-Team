@@ -23,14 +23,19 @@ public class MissionDemolition : MonoBehaviour
     public GameObject[] levels;
     public GameObject moon;
 
+    public static int Comets = 3;
+    public static int Asteroids = 3;
+    public TextMeshProUGUI asteroidCountText;
+    public TextMeshProUGUI cometCountText;
+
     [Header("Set Dynamically")]
     public int levelMax;
     public int shotsTaken;
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot";
     public GameObject levelCreation;
-
     private int level;
+
     private void Start()
     {
         S = this;
@@ -49,6 +54,8 @@ public class MissionDemolition : MonoBehaviour
 
         levelCreation = Instantiate<GameObject>(levels[level]); //Instantiates a level.
         //moon.transform.position = castlePos;
+
+        UpdateProjectiles();
         shotsTaken = 0;
 
         SwitchView("Show Both");
@@ -64,6 +71,8 @@ public class MissionDemolition : MonoBehaviour
     {
         uiLevel.text = "Level: " + (level + 1) + " of " + levelMax;
         uiShots.text = "Shots Taken: " + shotsTaken;
+        asteroidCountText.text = "Asteroids Remaining: " + Asteroids.ToString();
+        cometCountText.text = "Comets Remaining: " + Comets.ToString();
     }
 
     private void Update()
@@ -116,5 +125,44 @@ public class MissionDemolition : MonoBehaviour
     public static void ShotFired()
     {
         S.shotsTaken++;
+    }
+
+    private void UpdateProjectiles()
+    {
+        switch (level)
+        {
+            case 0:
+                Asteroids = 3;
+                Comets = 0;
+                asteroidCountText.text = "Asteroids Remaining: 3";
+                cometCountText.text = "Comets Remaining: 0";
+                break;
+            case 1:
+                //Asteroids
+                //Comets
+                //asteroidCountText.text
+                //cometCountText.text
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+            case 11:
+                break;
+        }
     }
 }
