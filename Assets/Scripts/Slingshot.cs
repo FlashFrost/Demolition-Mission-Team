@@ -12,6 +12,11 @@ public class Slingshot : MonoBehaviour
     public GameObject prefabCometProjectile;
     public float velocityMult = 8f;
     public TextMeshProUGUI projectileType;
+    public int Asteroids;
+    public int Comets;
+    public TextMeshProUGUI asteroidCount;
+    public TextMeshProUGUI cometCount;
+    public GameObject outOfAmmoVoidbox;
 
     [Header("Set Dynamically")]
     private Rigidbody projectileRigidbody;
@@ -67,11 +72,29 @@ public class Slingshot : MonoBehaviour
         aimingMode = true;
         if (shootComet == false)
         {
-            projectile = Instantiate(prefabProjectile) as GameObject;
+            if (Asteroids == 0)
+            {
+                //Insert something happening because you are out of basic shots.
+            }
+            else
+            {
+                projectile = Instantiate(prefabProjectile) as GameObject;
+                Asteroids--;
+                asteroidCount.text = ("Asteroids Remaining: " + Asteroids);
+            }
         }
         else
         {
-            projectile = Instantiate(prefabCometProjectile) as GameObject;
+            if (Comets == 0)
+            {
+                //Insert something happening because you are out of comet shots.
+            }
+            else
+            {
+                projectile = Instantiate(prefabCometProjectile) as GameObject;
+                Comets--;
+                cometCount.text = ("Comets Remaining: " + Comets);
+            }
         }
         projectile.transform.position = launchPos;
         projectile.GetComponent<Rigidbody>().isKinematic = true;
