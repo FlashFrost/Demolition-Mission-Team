@@ -17,7 +17,7 @@ public class KillboxController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Projectile"))
+        if (other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Comet"))
         {
             FollowCam.POI = null;
         } 

@@ -43,9 +43,11 @@ public class Slingshot : MonoBehaviour
     {
         S = this;
         Transform launchPointTrans = transform.Find("LaunchPoint");
-        launchPoint = launchPointTrans.gameObject;
-        launchPoint.SetActive(false);
-        launchPos = launchPointTrans.position;
+        if (launchPointTrans != null) {
+            launchPoint = launchPointTrans.gameObject;
+            launchPoint.SetActive(false);
+            launchPos = launchPointTrans.position;
+        }
     }
 
     private void OnMouseEnter()

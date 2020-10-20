@@ -5,7 +5,10 @@ using UnityEngine;
 public class GravityController : MonoBehaviour
 {
     public float pullPower;
-
+    public bool isComet;
+    
+    private bool powerUsed = false;
+    private bool launched = false;
     private List<GameObject> wells = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
@@ -21,13 +24,23 @@ public class GravityController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (wells.Count > 0) {
+        if (wells.Count > 0 && !powerUsed) {
             Vector3 gravToApply = Vector3.one;        
             foreach (GameObject well in wells) {
                 gameObject.transform.LookAt(well.transform);
                 gravToApply += gameObject.transform.forward * pullPower;
             }
             gameObject.GetComponent<Rigidbody>().AddForce(gravToApply);
+        }
+    }
+
+    private void Update() {
+        if (Input.GetMouseButtonDown(0)) {
+            if (launched && isComet) {
+                powerUsed = true;
+            } else if (!launched) {
+                launched = true;
+            }
         }
     }
 }
