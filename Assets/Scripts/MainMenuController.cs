@@ -40,7 +40,7 @@ public class MainMenuController : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("The game should quit here.");
+        Application.Quit();        
     }
 
     public void Level1()
