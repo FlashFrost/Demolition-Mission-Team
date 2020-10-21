@@ -59,7 +59,9 @@ public class MissionDemolition : MonoBehaviour
         }
 
         Destroy(levelCreation);
+        bool currentProjectile = Slingshot.shootComet;
         levelCreation = Instantiate<GameObject>(levels[level]); //Instantiates a level.
+        Slingshot.shootComet = currentProjectile;
         //moon.transform.position = castlePos;
 
         UpdateProjectiles();
@@ -160,8 +162,8 @@ public class MissionDemolition : MonoBehaviour
                 Comets = 1;
                 break;
             case 3:
-                Asteroids = 5;
-                Comets = 0;
+                Asteroids = 0;
+                Comets = 5;
                 break;
             case 4:
                 Asteroids = 3;

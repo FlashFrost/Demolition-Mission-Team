@@ -17,7 +17,7 @@ public class Slingshot : MonoBehaviour
     private Rigidbody projectileRigidbody;
     public GameObject launchPoint;
     public Vector3 launchPos;
-    static private bool shootComet;
+    static public bool shootComet;
 
     static public Vector3 LAUNCH_POS
     {
