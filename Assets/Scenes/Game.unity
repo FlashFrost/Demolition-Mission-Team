@@ -823,7 +823,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &696207610
 GameObject:
@@ -1273,6 +1273,7 @@ MonoBehaviour:
   - {fileID: 3003992573100167149, guid: 39b0e2b6698b5ba4691faa0e528bdef1, type: 3}
   - {fileID: 6603315724593978565, guid: 43a8bb41c76317f4ca6b3bc332ebf701, type: 3}
   - {fileID: 1175031662636305854, guid: 2f20024c9807bb546946ea1839a5b2e0, type: 3}
+  - {fileID: 3003992573100167149, guid: b75d1e4e3ac8d8d4daabf247267d4cbd, type: 3}
   moon: {fileID: 0}
   asteroidCountText: {fileID: 1463715525}
   cometCountText: {fileID: 1340405401}
@@ -1911,7 +1912,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ddcac1fac1f5c8943a30c2ef6b724062, type: 3}
-  m_Type: 0
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1919,7 +1920,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 20
 --- !u!222 &1286649287
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2252,7 +2253,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ddcac1fac1f5c8943a30c2ef6b724062, type: 3}
-  m_Type: 0
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2260,7 +2261,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 20
 --- !u!222 &1445615807
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3064,7 +3065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8960458337063428319, guid: 0ea63e7ed44aa1d4aba347e39a2c13eb, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8960458337063428319, guid: 0ea63e7ed44aa1d4aba347e39a2c13eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

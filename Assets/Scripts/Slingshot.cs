@@ -89,7 +89,10 @@ public class Slingshot : MonoBehaviour
                 MissionDemolition.Comets--;
             }
         }
-        projectile.transform.position = launchPos;
+        //this ensures we can set the ship behind the asteroid and the asteroid will still
+        //be on the same plane as the objects on the level 
+        //(this means we can also see the asteroid while we shoot which was a problem)
+        projectile.transform.position = new Vector3(launchPos.x, launchPos.y, 0);
         projectile.GetComponent<Rigidbody>().isKinematic = true;
         projectileRigidbody = projectile.GetComponent<Rigidbody>();
         projectileRigidbody.isKinematic = true;
@@ -115,7 +118,7 @@ public class Slingshot : MonoBehaviour
         }
 
         Vector3 projPos = launchPos + mouseDelta;
-        projectile.transform.position = projPos;
+        projectile.transform.position = new Vector3(projPos.x, projPos.y, 0);
         if(Input.GetMouseButtonUp(0))
         {
             aimingMode = false;

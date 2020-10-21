@@ -52,13 +52,14 @@ public class MissionDemolition : MonoBehaviour
             Destroy(ptemp);
         }
 
+        Destroy(levelCreation);
         levelCreation = Instantiate<GameObject>(levels[level]); //Instantiates a level.
         //moon.transform.position = castlePos;
 
         UpdateProjectiles();
         shotsTaken = 0;
 
-        SwitchView("Show Both");
+        SwitchView("Show Level");
         ProjectileLine.S.Clear();
 
         Goal.goalMet = false;
@@ -133,19 +134,21 @@ public class MissionDemolition : MonoBehaviour
         {
             case 0:
                 Asteroids = 3;
-                Comets = 0;
-                asteroidCountText.text = "Asteroids Remaining: 3";
-                cometCountText.text = "Comets Remaining: 0";
+                Comets = 0;                
                 break;
             case 1:
-                //Asteroids
-                //Comets
+                Asteroids = 2;
+                Comets = 0;
                 //asteroidCountText.text
                 //cometCountText.text
                 break;
             case 2:
+                Asteroids = 2;
+                Comets = 1;
                 break;
             case 3:
+                Asteroids = 5;
+                Comets = 0;
                 break;
             case 4:
                 break;
@@ -164,5 +167,7 @@ public class MissionDemolition : MonoBehaviour
             case 11:
                 break;
         }
+        asteroidCountText.text = $"Asteroids Remaining: {Asteroids}";
+        cometCountText.text = $"Comets Remaining: {Comets}";
     }
 }
