@@ -148,8 +148,8 @@ public class MissionDemolition : MonoBehaviour
         switch (level)
         {
             case 0:
-                Asteroids = 10;
-                Comets = 5;                
+                Asteroids = 2;
+                Comets = 0;                
                 break;
             case 1:
                 Asteroids = 7;
@@ -164,20 +164,36 @@ public class MissionDemolition : MonoBehaviour
                 Comets = 0;
                 break;
             case 4:
+                Asteroids = 3;
+                Comets = 1;
                 break;
             case 5:
+                Asteroids = 3;
+                Comets = 1;
                 break;
             case 6:
+                Asteroids = 3;
+                Comets = 1;
                 break;
             case 7:
+                Asteroids = 3;
+                Comets = 1;
                 break;
             case 8:
+                Asteroids = 3;
+                Comets = 1;
                 break;
             case 9:
+                Asteroids = 3;
+                Comets = 1;
                 break;
             case 10:
+                Asteroids = 3;
+                Comets = 1;
                 break;
             case 11:
+                Asteroids = 5;
+                Comets = 2;
                 break;
         }
         asteroidCountText.text = $"Asteroids Remaining: {Asteroids}";
