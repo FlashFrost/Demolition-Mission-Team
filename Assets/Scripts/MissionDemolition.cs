@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public enum GameMode
@@ -47,6 +48,11 @@ public class MissionDemolition : MonoBehaviour
     void StartLevel()
     {
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Projectile");
+        foreach(GameObject ptemp in gos)
+        {
+            Destroy(ptemp);
+        }
+        gos = GameObject.FindGameObjectsWithTag("Comet");
         foreach(GameObject ptemp in gos)
         {
             Destroy(ptemp);
@@ -127,6 +133,16 @@ public class MissionDemolition : MonoBehaviour
         S.shotsTaken++;
     }
 
+    public void RestartLevel()
+    {
+        StartLevel();
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     private void UpdateProjectiles()
     {
         switch (level)
@@ -136,11 +152,11 @@ public class MissionDemolition : MonoBehaviour
                 Comets = 5;                
                 break;
             case 1:
-                Asteroids = 2;
+                Asteroids = 7;
                 Comets = 0;
                 break;
             case 2:
-                Asteroids = 2;
+                Asteroids = 3;
                 Comets = 1;
                 break;
             case 3:

@@ -8,7 +8,8 @@ public class Goal : MonoBehaviour
     static public bool goalMet = false;
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Comet")) {
+        if (collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Comet")) 
+        {
             Debug.Log("Ello?");
             Goal.goalMet = true;
 
