@@ -133,8 +133,8 @@ public class MissionDemolition : MonoBehaviour
         switch (level)
         {
             case 0:
-                Asteroids = 3;
-                Comets = 0;                
+                Asteroids = 10;
+                Comets = 5;                
                 break;
             case 1:
                 Asteroids = 2;
