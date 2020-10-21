@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject menuVoidbox;
     public GameObject levelSelectVoidbox;
     public GameObject levelLoadingVoidbox;
+    public GameObject InstructionsVoidbox;
     public TextMeshProUGUI levelLoadingtext;
     public GameObject[] checkMarks;
 
@@ -19,6 +20,7 @@ public class MainMenuController : MonoBehaviour
         menuVoidbox.SetActive(true);
         levelSelectVoidbox.SetActive(false);
         levelLoadingVoidbox.SetActive(false);
+        InstructionsVoidbox.SetActive(false);
         for (int i = 0; i < 12; i++)
         {
             string pref = PlayerPrefs.GetString(i + "Completed");
@@ -99,5 +101,17 @@ public class MainMenuController : MonoBehaviour
         //Debug.Log(levelCall);
         PlayerPrefs.SetInt("Level", levelCall);
         SceneManager.LoadScene(1);
+    }
+
+    public void LoadInstructions()
+    {
+        menuVoidbox.SetActive(false);
+        InstructionsVoidbox.SetActive(true);
+    }
+
+    public void CloseInstructions()
+    {
+        InstructionsVoidbox.SetActive(false);
+        menuVoidbox.SetActive(true);
     }
 }
