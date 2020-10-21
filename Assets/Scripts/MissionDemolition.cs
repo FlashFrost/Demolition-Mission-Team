@@ -102,25 +102,24 @@ public class MissionDemolition : MonoBehaviour
 
     public void SwitchView(string eView = "")
     {
-        //if(eView == "")
-        //{
-        //    eView = uiButton.text;
-        //}
+        if(eView == "")
+        {
+            eView = uiButton.text;
+        }
 
-        //showing = eView;
-        //switch (showing)
-        //{
-        //    case "View Launcher":
-        //        FollowCam.POI = null;
-        //        uiButton.text = "Zoom Out";
-        //        break;
-        //    case "Zoom Out":
-        //        FollowCam.POI
-        //        uiButton.text = "View Launcher";
-        //        break;
-        //}
-
-        FollowCam.POI = null;
+        showing = eView;
+        switch (showing)
+        {
+            case "View Launcher":
+                FollowCam.POI = null;
+                uiButton.text = "Zoom Out";
+                break;
+            case "Zoom Out":
+                FollowCam.POI = GameObject.FindGameObjectWithTag("FocusPoint");
+                Camera.main.orthographicSize = 45;
+                uiButton.text = "View Launcher";
+                break;
+        }
     }
 
     public static void ShotFired()
@@ -139,8 +138,6 @@ public class MissionDemolition : MonoBehaviour
             case 1:
                 Asteroids = 2;
                 Comets = 0;
-                //asteroidCountText.text
-                //cometCountText.text
                 break;
             case 2:
                 Asteroids = 2;

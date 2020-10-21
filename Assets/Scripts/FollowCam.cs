@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FollowCam : MonoBehaviour
 {
-
     static public GameObject POI;
     public float camZ;
     public float easing = 0.05f;
+    private GameObject Launcher;
 
     public Vector2 minXY = Vector2.zero;
 
@@ -25,8 +25,11 @@ public class FollowCam : MonoBehaviour
 
         if (POI == null)
         {
-            destination = Vector3.zero;
+            Launcher = GameObject.FindGameObjectWithTag("Launcher");
+            destination = Launcher.transform.position;
+            Camera.main.orthographicSize = 25;
         }
+
         else
         {
             destination = POI.transform.position;
@@ -50,7 +53,7 @@ public class FollowCam : MonoBehaviour
 
         transform.position = destination;
 
-        Camera.main.orthographicSize = destination.y + 30;
+        //Camera.main.orthographicSize = destination.y + 30;
     }
 
 }
