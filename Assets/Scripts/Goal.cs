@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    public GameObject explosionPrefab;
 
     static public bool goalMet = false;
 
@@ -11,7 +12,9 @@ public class Goal : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Comet")) 
         {
             Goal.goalMet = true;
-
+            GameObject explosion = Instantiate(explosionPrefab);
+            explosion.transform.position = gameObject.transform.position;
+            Destroy(gameObject);
             //Material mat = GetComponent<Renderer>().material;
             //Color c = mat.color;
             //c.a = 1;
