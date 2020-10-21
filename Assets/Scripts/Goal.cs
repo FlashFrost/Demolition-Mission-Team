@@ -10,13 +10,12 @@ public class Goal : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Comet")) 
         {
-            Debug.Log("Ello?");
             Goal.goalMet = true;
 
-            Material mat = GetComponent<Renderer>().material;
-            Color c = mat.color;
-            c.a = 1;
-            mat.color = c;
+            //Material mat = GetComponent<Renderer>().material;
+            //Color c = mat.color;
+            //c.a = 1;
+            //mat.color = c;
         }
     }
 

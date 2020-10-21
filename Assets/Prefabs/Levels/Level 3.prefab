@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6603315724593978566}
   m_Layer: 0
-  m_Name: Level 2
+  m_Name: Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,6 +41,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6603315724593978566}
     m_Modifications:
+    - target: {fileID: 2130007080993396819, guid: e32f2544d7cff6a46b68b64206aef47d, type: 3}
+      propertyPath: m_TagString
+      value: Goal
+      objectReference: {fileID: 0}
     - target: {fileID: 6918239071337635978, guid: e32f2544d7cff6a46b68b64206aef47d, type: 3}
       propertyPath: m_Name
       value: Moon 2K
