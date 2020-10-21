@@ -109,6 +109,12 @@ public class MainMenuController : MonoBehaviour
         InstructionsVoidbox.SetActive(true);
     }
 
+    public void BackToMenu()
+    {
+        levelSelectVoidbox.SetActive(false);
+        menuVoidbox.SetActive(true);
+    }
+
     public void CloseInstructions()
     {
         InstructionsVoidbox.SetActive(false);
