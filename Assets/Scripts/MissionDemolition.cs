@@ -122,7 +122,7 @@ public class MissionDemolition : MonoBehaviour
                 break;
             case "Zoom Out":
                 FollowCam.POI = GameObject.FindGameObjectWithTag("FocusPoint");
-                Camera.main.orthographicSize = 45;
+                //Camera.main.orthographicSize = 45;
                 uiButton.text = "View Launcher";
                 break;
         }

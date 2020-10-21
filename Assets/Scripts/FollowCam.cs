@@ -21,6 +21,8 @@ public class FollowCam : MonoBehaviour
         //if (POI == null)
         //return;
 
+        //Debug.Log(POI.tag);
+
         Vector3 destination;  //= POI.transform.position;
 
         if (POI == null)
@@ -29,20 +31,16 @@ public class FollowCam : MonoBehaviour
             destination = Launcher.transform.position;
             Camera.main.orthographicSize = 25;
         }
-
         else
         {
             destination = POI.transform.position;
 
-            if (POI.tag == "Projectile")
+            if (POI.CompareTag("Projectile") && POI.GetComponent<Rigidbody>().IsSleeping())
             {
-                if(POI.GetComponent<Rigidbody>().IsSleeping())
-                {
-                    POI = null;
-                    return;
-                }
+                POI = null;
+                return;
             }
-        }
+        }        
 
         destination.x = Mathf.Max(minXY.x, destination.x);
         destination.y = Mathf.Max(minXY.y, destination.y);
@@ -53,7 +51,7 @@ public class FollowCam : MonoBehaviour
 
         transform.position = destination;
 
-        //Camera.main.orthographicSize = destination.y + 30;
+        Camera.main.orthographicSize = destination.y + 30;
     }
 
 }
