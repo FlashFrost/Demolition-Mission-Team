@@ -1269,8 +1269,10 @@ MonoBehaviour:
   - {fileID: 6603315724593978565, guid: 43a8bb41c76317f4ca6b3bc332ebf701, type: 3}
   - {fileID: 1175031662636305854, guid: 2f20024c9807bb546946ea1839a5b2e0, type: 3}
   - {fileID: 3003992573100167149, guid: b75d1e4e3ac8d8d4daabf247267d4cbd, type: 3}
-  - {fileID: 3003992573100167149, guid: 95a019edd8b100a498d24fa32e5b424b, type: 3}
   - {fileID: 6603315724593978565, guid: 4c3f0181c488c10449d54ec6ee4ae08d, type: 3}
+  - {fileID: 3003992573100167149, guid: 9ba89d1519f95604dbf9c94240cd1326, type: 3}
+  - {fileID: 3003992573100167149, guid: 95a019edd8b100a498d24fa32e5b424b, type: 3}
+  - {fileID: 3003992573100167149, guid: 5a09e7cd8d67cd743a0c72873f765abf, type: 3}
   - {fileID: 3003992573100167149, guid: a7443e17a9e91914b8fdd97d8f4677ea, type: 3}
   moon: {fileID: 0}
   asteroidCountText: {fileID: 1463715525}
